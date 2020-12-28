@@ -78,8 +78,8 @@ keys = [
     # Rofi
     Key([mod, "mod1"], "space", lazy.spawn("rofi -modi run -show run -show-icons")),
     
-    
-    # Switch between windows
+    			
+    # Switch between windows in a workspace
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
@@ -178,7 +178,8 @@ def init_colors():
             ["#cd1f3f", "#cd1f3f"], # color 6
             ["#62FF00", "#62FF00"], # color 7
             ["#6790eb", "#6790eb"], # color 8
-            ["#a9a9a9", "#a9a9a9"]] # color 9
+            ["#bf616a", "#bf616a"], # color 9
+            ["#a9a9a9", "#a9a9a9"]] # color 10
 
 
 colors = init_colors()
@@ -204,6 +205,7 @@ screens = [
                         background = colors[1]                
                 ),
                 widget.GroupBox(
+                        font = "UbuntuMono Nerd Font",
                         fontsize = 14,
                         margin_y = 3,
                         margin_x = 0,
@@ -252,11 +254,13 @@ screens = [
                         padding = 2,
                         foreground = colors[5],
                         background = colors[1],
+                        font = "UbuntuMono Nerd Font",
                         fontsize = 14
                         ),
                 widget.Net(
                         foreground = colors[2],
                         background = colors[1],
+                        font = "UbuntuMono Nerd Font",
                         fontsize = 14
                 	),
                 widget.Sep(
@@ -270,6 +274,7 @@ screens = [
                         padding = 2,
                         foreground = colors[5],
                         background = colors[1],
+                        font = "UbuntuMono Nerd Font",
                         fontsize = 14
                         ),
                 widget.CheckUpdates(
@@ -277,6 +282,7 @@ screens = [
                         background = colors[1],
                         no_update_string = '0',
                         #distro = 'Pop!_OS',
+                        font = "UbuntuMono Nerd Font",
                         fontsize = 14
                 	),
                 widget.Sep(
@@ -290,10 +296,11 @@ screens = [
                         padding = 2,
                         foreground = colors[5],
                         background = colors[1],
+                        font = "UbuntuMono Nerd Font",
                         fontsize = 14
                         ),
                 widget.Memory(
-                        #font="UbuntuMono Nerd Font",
+                        font="UbuntuMono Nerd Font",
                         format = '{MemUsed}M / {MemTotal}M ',
                         update_interval = 1.0,
                         fontsize = 14,
@@ -311,6 +318,7 @@ screens = [
                         padding = 2,
                         foreground = colors[5],
                         background = colors[1],
+                        font = "UbuntuMono Nerd Font",
                         fontsize = 14
                         ),
                 widget.CPU(
