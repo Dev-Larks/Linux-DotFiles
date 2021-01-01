@@ -33,7 +33,7 @@ onedrive/items.sqlite3-shm
 onedrive/refresh_token
 onedrive/.config.backup
 onedrive/.config.hash
-onedrive.sync_list.hash
+onedrive/.sync_list.hash
 pop-shell/
 pulse/
 qtile/__pycache__/config.cpython-38.pyc
