@@ -26,7 +26,11 @@ monitors.xml
 monitors.xml~
 mono.addins/
 nautilus/
-onedrive/
+onedrive/items.sqlite3
+onedrive/items.sqlite3-wal
+onedrive/items-dryrun.sqlite3
+onedrive/items.sqlite3-shm
+onedrive/refresh_token
 pop-shell/
 pulse/
 systemd/
