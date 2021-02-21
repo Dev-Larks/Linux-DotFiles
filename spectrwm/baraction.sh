@@ -10,7 +10,7 @@
 
 hdd() {
 	  hdd="$(df -h | awk 'NR==4{print $3 " / " $5}')"
-	    echo -e "  HDD: $hdd  "
+	    echo -e " HDD: $hdd "
     }
 
 ##############################
@@ -40,7 +40,7 @@ cpu() {
 	        read cpu a b c idle rest < /proc/stat
 		  total=$((a+b+c+idle))
 		    cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-		      echo -e " CPU: $cpu%  "
+		      echo -e " CPU: $cpu% "
 	      }
 
 temp() {
@@ -56,7 +56,7 @@ temp() {
 
 vol() {
 	vol=`amixer get Master | awk -F'[][]' 'END{ print $2 }' | sed 's/on://g'`
-	echo -e "  VOL: $vol  "
+	echo -e " VOL: $vol "
 }
 
 
@@ -64,6 +64,6 @@ vol() {
 SLEEP_SEC=2	
 #loops forever outputting a line every SLEEP_SEC secs
 	while :; do     
-		echo "$(cpu)  |  $(temp)  |  $(mem)  |  $(hdd)  |  $(vol)  |"
+		echo "$(cpu) | $(temp) | $(mem) | $(hdd) | $(vol) |"
 		sleep $SLEEP_SEC
 	done
