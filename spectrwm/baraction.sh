@@ -10,7 +10,7 @@
 
 hdd() {
 	  hdd="$(df -h | awk 'NR==4{print $3 " / " $5}')"
-	    echo -e " HDD: $hdd "
+	    echo -e "HDD: $hdd"
     }
 
 ##############################
@@ -25,7 +25,7 @@ totalh="$(free -h | grep Mem: | awk '{print $2}' | sed 's/Gi/G/')"
 
 ram="$(( 200 * $used/$total - 100 * $used/$total ))% / $totalh "
 
-echo RAM:  $ram
+echo RAM: $ram
 }
 
 
@@ -56,7 +56,7 @@ temp() {
 
 vol() {
 	vol=`amixer get Master | awk -F'[][]' 'END{ print $2 }' | sed 's/on://g'`
-	echo -e " VOL: $vol "
+	echo -e "VOL: $vol"
 }
 
 
@@ -64,6 +64,6 @@ vol() {
 SLEEP_SEC=2	
 #loops forever outputting a line every SLEEP_SEC secs
 	while :; do     
-		echo "+@fg=4; $(cpu) +@fg=0; | $(temp) | $(mem) | $(hdd) | $(vol) |"
+		echo "+@fg=4; $(cpu) +@fg=0; | +@fg=2; $(temp) +@fg=0; | +@fg=1; $(mem) +@fg=0; | +@fg=3; $(hdd) +@fg=0; | +@fg=7; $(vol) +@fg=0; |"
 		sleep $SLEEP_SEC
 	done
