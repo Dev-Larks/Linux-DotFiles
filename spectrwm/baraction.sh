@@ -64,6 +64,6 @@ vol() {
 SLEEP_SEC=2	
 #loops forever outputting a line every SLEEP_SEC secs
 	while :; do     
-		echo "$(cpu) | $(temp) | $(mem) | $(hdd) | $(vol) |"
+		echo "+@fg=4; $(cpu) +@fg=0; | $(temp) | $(mem) | $(hdd) | $(vol) |"
 		sleep $SLEEP_SEC
 	done
