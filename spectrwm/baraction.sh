@@ -41,7 +41,7 @@ cpu() {
 		  total=$((a+b+c+idle))
 		    cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
 		     # echo -e " CPU: $cpu% "
-		     echo -e "   : $cpu%"
+		     echo -e "  : $cpu%"
 }
 
 temp() {
@@ -57,7 +57,7 @@ temp() {
 
 vol() {
 	vol=`amixer get Master | awk -F'[][]' 'END{ print $2 }' | sed 's/on://g'`
-	echo -e ": $vol"
+	echo -e "  : $vol"
 }
 
 
@@ -65,31 +65,15 @@ vol() {
 #	UPDATES
 #############################
 
-#updates() {
-#	pacman -Sy 2> /dev/null
-#	
-#	if ! updates_arch=$(pacman -Qu 2> /dev/null | wc -l ); then
-#	updates_arch=0
-#	fi
-#
-#	if ! updates_aur=$(paru -Qua 2> /dev/null | wc -l); then
-#   	updates_aur=0
-#	fi
-#
-#	updates=$(("$updates_arch" + "$updates_aur"))
-#
-#	if [ "$updates" -gt 0 ]; then
-#	    echo " : $updates"
-#	else
-#	    echo "0"
-#	fi
-#}
+updates() {
+	updates=$(cat /tmp/updates.tmp)
+	echo "  : $updates"
+}
 
 
 SLEEP_SEC=2	
 #loops forever outputting a line every SLEEP_SEC secs
 	while :; do     
-		echo "+@fg=4; $(cpu) +@fg=0; | +@fg=2; $(temp) +@fg=0; | +@fg=1; $(mem) +@fg=0; | +@fg=3; $(hdd) +@fg=0; | +@fg=7; $(vol) +@fg=0; |"
-		       #	+@fg=0; $(updates) +@fg=0;"
+		echo "+@fg=4; $(cpu) +@fg=0; | +@fg=2; $(temp) +@fg=0; | +@fg=1; $(mem) +@fg=0; | +@fg=3; $(hdd) +@fg=0; | +@fg=7; $(vol) +@fg=0; | +@fg=0; $(updates) +@fg=0; |"
 		sleep $SLEEP_SEC
 	done
